@@ -201,8 +201,9 @@ open class Highlightr
         while !scanner.isAtEnd
         {
             var ended = false
-            if scanner.scanUpTo(htmlStart, into: &scannedString)
+            if let str: String = scanner.scanUpToString(htmlStart)
             {
+                scannedString = str as NSString?
                 if scanner.isAtEnd
                 {
                     ended = true
